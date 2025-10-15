@@ -3,6 +3,8 @@ var express = require("express")
 
 var connectToDatabase = require("./database/db")
 var userRoute = require("./routes/user-routes")
+var homeRoute =require("./routes/home-routes")
+var adminRoute=require("./routes/admin-routes")
 var cors = require("cors")
 
 var app = express()
@@ -15,6 +17,8 @@ connectToDatabase()
 app.use(express.json())
 
 app.use("/api/auth", userRoute)
+app.use("/api/home",homeRoute)
+app.use("/api/welcome",adminRoute)
 
 app.use(cors())
 
